@@ -13,11 +13,22 @@ public class UntypedQueue implements UntypedDataStructure {
 
     private Object[] queue;
 
+    /**
+    * Instantiate a dynamic sized queue
+    *
+    * @see UntypedQueue
+    */
     public UntypedQueue() {        
         this.maxSize = -1;
         this.queue = new Object[DEFAULT_DYNAMIC_SIZE];
     }
 
+    /**
+    * Instantiate a sized queue
+    *
+    * @param maxSize the max possible amount of items in the structure
+    * @see UntypedQueue
+    */
     public UntypedQueue(int maxSize) {   
         
         if (maxSize <= 0) 
@@ -27,6 +38,12 @@ public class UntypedQueue implements UntypedDataStructure {
         this.queue = new Object[maxSize];
     }
 
+    /**
+    * Append a new object to the end of the queue.
+    *
+    * @param o the instance of Object to be append.
+    * @see UntypedQueue
+    */
     @Override
     public void push(Object o) {
 
@@ -53,6 +70,12 @@ public class UntypedQueue implements UntypedDataStructure {
         this.size++;            
     }
 
+    /**
+    * Retrieves a object from the start of the queue. 
+    *
+    * @return the instance of Object to be retrieved.
+    * @see UntypedQueue
+    */
     @Override
     public Object get() {
 
@@ -67,11 +90,6 @@ public class UntypedQueue implements UntypedDataStructure {
 
         this.size--;
         return nextObject;
-    }
-
-    @Override
-    public Object get(int index) {
-        throw new UnsupportedOperationException("Unimplemented method 'get(<index>)'");
     }
 
     @Override
