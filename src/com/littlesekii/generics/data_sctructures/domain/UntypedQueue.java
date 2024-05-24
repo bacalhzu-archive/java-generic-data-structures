@@ -48,7 +48,7 @@ public class UntypedQueue implements UntypedDataStructure {
     public void push(Object o) {
 
         if (this.isFull()) 
-            throw new InvalidDataStructureAccessException("cannot push data to a full Data Structure.");
+            throw new InvalidDataStructureAccessException("cannot push data to a full Queue.");
 
         if (this.isDynamic() && this.isOverflowing()) {
             --this.maxSize;
@@ -71,7 +71,9 @@ public class UntypedQueue implements UntypedDataStructure {
     }
 
     /**
-    * Retrieves a object from the start of the queue. 
+    * Retrieves a object from the head of the queue. 
+    *
+    * This removes the retrieved object from queue.
     *
     * @return the instance of Object to be retrieved.
     * @see UntypedQueue
@@ -80,7 +82,7 @@ public class UntypedQueue implements UntypedDataStructure {
     public Object get() {
 
         if (this.isEmpty()) 
-            throw new InvalidDataStructureAccessException("cannot get data from empty Data Structure.");
+            throw new InvalidDataStructureAccessException("cannot get data from empty Queue.");
 
         Object nextObject = this.queue[0];
         
